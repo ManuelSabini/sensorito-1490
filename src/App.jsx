@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import { db } from './comp/firebaseConfig/firebaseConfig';
 import { CardSensor } from './comp/cardSensor/CardSensor.jsx';
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
+import './App.css';
 
 function App() {
   const [ultimoDato, setUltimoDato] = useState(null);
@@ -35,7 +35,7 @@ function App() {
     return () => unsubscribe(); // Limpieza al desmontar el componente
   }, []);
 
-  if (loading) return <p>Cargando datos del sensor...</p>;
+  if (loading) return <p className='texto'>Cargando datos del sensor...</p>;
 
   return (
     <div className='conteiner-monitor'>
@@ -45,7 +45,7 @@ function App() {
       ultimoDato ? (
       <CardSensor ultimoDato={ultimoDato} />
     ): (
-          <p>No hay datos disponibles.</p>
+          <p className='texto'>No hay datos disponibles.</p>
     )
 }
 </div>
