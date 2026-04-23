@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './App.css';
 import { db } from './comp/firebaseConfig/firebaseConfig';
 import { CardSensor } from './comp/cardSensor/CardSensor.jsx';
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
@@ -37,8 +38,9 @@ function App() {
   if (loading) return <p>Cargando datos del sensor...</p>;
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif', color: '#E0F2F1' }}>
-      <h1>Monitoreo de Temperatura</h1>
+    <div className='conteiner-monitor'>
+      <h1 style={{fontFamily: 'sans-serif',
+    color: '#E0F2F1'}}>Monitoreo de Temperatura</h1>
     {
       ultimoDato ? (
       <CardSensor ultimoDato={ultimoDato} />

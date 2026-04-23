@@ -4,7 +4,7 @@ import { FORMAT_RGB } from 'antd/es/color-picker/interface';
 
 export const CardSensor = ({ ultimoDato }) => {
     return (
-        <Card title={
+        <Card size='small' title={
             <span style={{ color: '#64FFDA' }}>
                 Ubicación: {ultimoDato.dispositivo}
             </span>
@@ -12,7 +12,8 @@ export const CardSensor = ({ ultimoDato }) => {
             border: '2px solid #4B7B7B',
             padding: '15px',
             borderRadius: '8px',
-            width: '400px',
+            maxWidth: '450px',
+            width:'90%',
             backgroundColor: '#16211F',
             color: '#E0F2F1'
         }}>
