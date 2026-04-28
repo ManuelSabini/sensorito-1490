@@ -1,22 +1,38 @@
 import React from 'react';
 import { Card } from 'antd';
 import { FORMAT_RGB } from 'antd/es/color-picker/interface';
+import { TagIdSensor } from '../tagIdSensor/TagIdSensor';
+import './cardSensor.css';
 
 export const CardSensor = ({ ultimoDato }) => {
     return (
-        <Card size='small' title={
-            <span style={{ color: '#64FFDA' }}>
-                Ubicación: {ultimoDato.dispositivo}
-            </span>
-        } variant="outlined" style={{
-            border: '2px solid #4B7B7B',
-            padding: '15px',
-            borderRadius: '8px',
-            maxWidth: '450px',
-            width:'90%',
-            backgroundColor: '#16211F',
-            color: '#E0F2F1'
-        }}>
+        <Card size='small' 
+        title={
+                <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'space-between', // Separa el título del tag
+                    gap: '10px' // Espacio entre el texto y el tag
+                }}>
+                    <h2 style={{ 
+                        color: '#64FFDA', 
+                        margin: 0, // IMPORTANTE: quitar el margen por defecto del h2
+                        fontSize: '1.2rem' // Ajustamos el tamaño para que no rompa el diseño
+                    }}>
+                        Ubicación: {ultimoDato.dispositivo}
+                    </h2>
+                    
+                    <TagIdSensor>{ultimoDato.idDispositivo}</TagIdSensor>
+                </div>}
+            variant="outlined" style={{
+                border: '2px solid #4B7B7B',
+                padding: '15px',
+                borderRadius: '8px',
+                maxWidth: '450px',
+                width: '90%',
+                backgroundColor: '#16211F',
+                color: '#E0F2F1'
+            }}>
             <p><strong>Temperatura:</strong> {ultimoDato.temperatura} °C</p>
             <p><strong>Humedad:</strong> {ultimoDato.humedad} %</p>
             <p><strong>Última actualización:</strong> {ultimoDato.timestamp?.toDate().toLocaleString()}</p>

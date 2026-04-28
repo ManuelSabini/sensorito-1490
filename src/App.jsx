@@ -43,7 +43,7 @@ function App() {
     color: '#E0F2F1'}}>Monitoreo de Temperatura</h1>
     {
       ultimoDato ? (
-      <CardSensor ultimoDato={ultimoDato} />
+      <CardSensor ultimoDato={ultimoDato}/>
     ): (
           <p className='texto'>No hay datos disponibles.</p>
     )
