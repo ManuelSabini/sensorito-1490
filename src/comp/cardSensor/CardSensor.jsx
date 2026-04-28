@@ -8,6 +8,7 @@ export const CardSensor = ({ ultimoDato }) => {
     return (
         <Card size='small' 
         title={
+            <>
                 <div style={{ 
                     display: 'flex', 
                     alignItems: 'center', 
@@ -19,11 +20,19 @@ export const CardSensor = ({ ultimoDato }) => {
                         margin: 0, // IMPORTANTE: quitar el margen por defecto del h2
                         fontSize: '1.2rem' // Ajustamos el tamaño para que no rompa el diseño
                     }}>
-                        Ubicación: {ultimoDato.dispositivo}
+                        Ubicación: 
                     </h2>
-                    
                     <TagIdSensor>{ultimoDato.idDispositivo}</TagIdSensor>
-                </div>}
+                </div>
+                    <h3 style={{ 
+                        color: '#64FFDA', 
+                        margin: 0, // IMPORTANTE: quitar el margen por defecto del h2
+                        fontSize: '1.0  rem' // Ajustamos el tamaño para que no rompa el diseño
+                    }}>
+                        {ultimoDato.dispositivo}
+                    </h3>
+                    </>    
+                }
             variant="outlined" style={{
                 border: '2px solid #4B7B7B',
                 padding: '15px',
