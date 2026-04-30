@@ -1,6 +1,23 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'; // ¡Crucial!
 
+import L from 'leaflet';
+
+// Importamos las imágenes directamente para que Vite las procese
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+// Borramos la configuración interna que causa el 404
+delete L.Icon.Default.prototype._getIconUrl;
+
+// Aplicamos nuestra nueva configuración
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+});
+
 export const Mapa = ({posicion}) => {
   // Coordenadas iniciales (Latitud, Longitud)
   const position = [posicion.posicion.latitude,posicion.posicion.longitude];

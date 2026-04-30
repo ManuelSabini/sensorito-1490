@@ -40,7 +40,7 @@ export const CardSensor = ({ ultimoDato }) => {
                 padding: '15px',
                 borderRadius: '8px',
                 maxWidth: '450px',
-                width: '90%',
+                width: '95%',
                 backgroundColor: '#16211F',
                 color: '#E0F2F1'
             }}>
