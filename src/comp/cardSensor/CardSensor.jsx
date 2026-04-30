@@ -2,7 +2,9 @@ import React from 'react';
 import { Card } from 'antd';
 import { FORMAT_RGB } from 'antd/es/color-picker/interface';
 import { TagIdSensor } from '../tagIdSensor/TagIdSensor';
+import { Mapa } from '../mapa/Mapa';
 import './cardSensor.css';
+import UltimaActualizacion from '../ultimaActualizacion/UltimaActualizacion';
 
 export const CardSensor = ({ ultimoDato }) => {
     return (
@@ -44,7 +46,8 @@ export const CardSensor = ({ ultimoDato }) => {
             }}>
             <p><strong>Temperatura:</strong> {ultimoDato.temperatura} °C</p>
             <p><strong>Humedad:</strong> {ultimoDato.humedad} %</p>
-            <p><strong>Última actualización:</strong> {ultimoDato.timestamp?.toDate().toLocaleString()}</p>
+            <UltimaActualizacion ultimoDatoActualizacion = {ultimoDato.timestamp}/>
+            {ultimoDato.posicion ? (<Mapa posicion={ultimoDato}/>) : (<p>Ubicación no disponible</p>)}
         </Card>
     )
 }
