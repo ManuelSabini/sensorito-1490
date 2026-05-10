@@ -5,15 +5,14 @@ import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestor
 import './App.css';
 
 function App() {
-  const [ultimoDato, setUltimoDato] = useState(null);
+  const [sensoresDisponibles, setSensoresDisponibles] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Referencia a la colección
     const q = query(
-      collection(db, "registrosSensorTemp"),
-      orderBy("timestamp", "desc"),
-      limit(1)
+      collection(db, "sensores"),
+/*       limit(1) */
     );
     console.log(q.data);
 
@@ -26,7 +25,7 @@ function App() {
       }));
 
       if (data.length > 0) {
-        setUltimoDato(data[0]);
+        setSensoresDisponibles(data[0]);
         console.log(data[0]);
       }
       setLoading(false);
@@ -40,10 +39,10 @@ function App() {
   return (
     <div className='conteiner-monitor'>
       <h1 style={{fontFamily: 'sans-serif',
-    color: '#E0F2F1'}}>Monitoreo de Temperatura</h1>
+    color: '#E0F2F1'}}>Monitoreo</h1>
     {
-      ultimoDato ? (
-      <CardSensor ultimoDato={ultimoDato}/>
+      sensoresDisponibles ? (
+      <CardSensor idSensor={sensoresDisponibles.idDispositivo}/>
     ): (
           <p className='texto'>No hay datos disponibles.</p>
     )
