@@ -25,8 +25,8 @@ function App() {
       }));
 
       if (data.length > 0) {
-        setSensoresDisponibles(data[0]);
-        console.log(data[0]);
+        setSensoresDisponibles(data);
+        console.log(data);
       }
       setLoading(false);
     });
@@ -42,7 +42,11 @@ function App() {
     color: '#E0F2F1'}}>Monitoreo</h1>
     {
       sensoresDisponibles ? (
-      <CardSensor idSensor={sensoresDisponibles.idDispositivo}/>
+        sensoresDisponibles.map((sensor) => (
+          <CardSensor key={sensor.id} idSensor={sensor.idDispositivo}/>
+        ))
+        
+        
     ): (
           <p className='texto'>No hay datos disponibles.</p>
     )
