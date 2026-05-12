@@ -1,19 +1,19 @@
 .container-monitor {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     /* Permite que las cards bajen si no caben en una fila */
     justify-content: center;
     /* Centra las cards horizontalmente */
     align-items: center;
     /* Centra las cards verticalmente (opcional) */
-    gap: 10px;
+    gap: 25px;
     /* Espacio entre cada card */
-    padding: 30px;
+    padding-top: 30px;
     /* Espacio interno para que no toquen los bordes */
-    max-width: 450px;
-    width: 80%;
+    width: 100vw;
     background-color: #0B1211;
     /* Tu fondo Dark Polar */
-    font-family: 'sans-serif';
-    color: '#E0F2F1';
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue';
+    color: #E0F2F1;
 }

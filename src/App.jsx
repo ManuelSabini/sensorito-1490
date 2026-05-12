@@ -1,8 +1,10 @@
+import './App.css';
 import React, { useEffect, useState } from 'react';
 import { db } from './comp/firebaseConfig/firebaseConfig';
 import { CardSensor } from './comp/cardSensor/CardSensor.jsx';
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
-import './App.css';
+import { Header } from './comp/header/Header.jsx';
+import { Footer } from './comp/footer/Footer.jsx';
 
 function App() {
   const [sensoresDisponibles, setSensoresDisponibles] = useState(null);
@@ -12,7 +14,7 @@ function App() {
     // Referencia a la colección
     const q = query(
       collection(db, "sensores"),
-/*       limit(1) */
+      /*       limit(1) */
     );
     console.log(q.data);
 
@@ -37,21 +39,21 @@ function App() {
   if (loading) return <p className='texto'>Cargando datos del sensor...</p>;
 
   return (
-    <div className='conteiner-monitor'>
-      <h1 style={{fontFamily: 'sans-serif',
-    color: '#E0F2F1'}}>Monitoreo</h1>
-    {
-      sensoresDisponibles ? (
-        sensoresDisponibles.map((sensor) => (
-          <CardSensor key={sensor.id} idSensor={sensor.idDispositivo}/>
-        ))
-        
-        
-    ): (
-          <p className='texto'>No hay datos disponibles.</p>
-    )
-}
-</div>
+    <>
+      <Header/>
+      <div className='container-monitor'>
+        {
+          sensoresDisponibles ? (
+            sensoresDisponibles.map((sensor) => (
+              <CardSensor key={sensor.id} idSensor={sensor.idDispositivo} />
+            ))
+          ) : (
+            <p className='texto'>No hay datos disponibles.</p>
+          )
+        }
+      </div>
+      {/* <Footer/> */}
+    </>
   );
 }
 

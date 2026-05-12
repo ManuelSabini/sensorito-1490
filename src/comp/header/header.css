@@ -1,0 +1,11 @@
+header{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    padding-top: 10px;
+}
+
+h1{
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue';
+    color: #E0F2F1;
+}

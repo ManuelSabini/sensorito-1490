@@ -5,6 +5,7 @@ import { TagIdSensor } from '../tagIdSensor/TagIdSensor';
 import { Mapa } from '../mapa/Mapa';
 import { db } from '../firebaseConfig/firebaseConfig';
 import { collection, query, orderBy, limit, where, onSnapshot } from 'firebase/firestore';
+/* import { Cargando } from '../cargando/Cargando.jsx' */
 import './cardSensor.css';
 import UltimaActualizacion from '../ultimaActualizacion/UltimaActualizacion';
 
@@ -82,7 +83,7 @@ export const CardSensor = ({ idSensor }) => {
                 {ultimoRegistro.posicion ? (<Mapa posicion={ultimoRegistro} />) : (<p>Ubicación no disponible</p>)}
             </Card>
         ) : (
-            <p className='texto'>No hay datos disponibles.</p>
+            <p className='texto'>Cargando...</p>
         )
     ))
 }
