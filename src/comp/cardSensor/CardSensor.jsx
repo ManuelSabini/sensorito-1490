@@ -12,7 +12,6 @@ import UltimaActualizacion from '../ultimaActualizacion/UltimaActualizacion';
 export const CardSensor = ({ idSensor }) => {
     const [ultimoRegistro, setUltimoRegistro] = useState(null);
     const [loading, setLoading] = useState(true);
-    console.log(idSensor)
     useEffect(() => {
         // Referencia a la colección
         const q = query(
@@ -21,7 +20,6 @@ export const CardSensor = ({ idSensor }) => {
             orderBy("timestamp", "desc"),
             limit(1)
         );
-        console.log(q.data);
         // Usamos onSnapshot para que la web se actualice sola 
         // cada vez que el ESP32 mande un dato nuevo (tiempo real)
         const unsubscribe = onSnapshot(q, (querySnapshot) => {

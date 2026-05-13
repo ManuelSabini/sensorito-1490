@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import { db } from './comp/firebaseConfig/firebaseConfig';
 import { CardSensor } from './comp/cardSensor/CardSensor.jsx';
-import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
+import { collection, query, orderBy, limit, where, onSnapshot } from 'firebase/firestore';
 import { Header } from './comp/header/Header.jsx';
 import { Footer } from './comp/footer/Footer.jsx';
 
@@ -14,9 +14,8 @@ function App() {
     // Referencia a la colección
     const q = query(
       collection(db, "sensores"),
-      /*       limit(1) */
+      where("activo", "==", true)
     );
-    console.log(q.data);
 
     // Usamos onSnapshot para que la web se actualice sola 
     // cada vez que el ESP32 mande un dato nuevo (tiempo real)
